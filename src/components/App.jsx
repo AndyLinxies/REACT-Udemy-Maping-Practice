@@ -4,14 +4,14 @@ import Entry from './Entry'
 //Pour la theorie voir le fichier React props practice & maping
 //Mapping
 //1 
-function entryZ(def){
-return <Entry 
-key = {def.id}
-emojiP={def.emoji}
-nameP={def.name}
-meaningP={def.meaning}
-/> 
-}
+// function entryZ(def){
+// return <Entry 
+// key = {def.id}
+// emojiP={def.emoji}
+// nameP={def.name}
+// meaningP={def.meaning}
+// /> 
+// }
 
 function App() {
   return (
@@ -22,7 +22,15 @@ function App() {
       
 
       <dl className="dictionary">
-        {emojipedia.map(entryZ)} {/*2- Lieu d'insertion de la carte Entry mappée */}
+        {/* {emojipedia.map(entryZ)} 2- Lieu d'insertion de la carte Entry mappée */}
+        {emojipedia.map(element=>{
+          return <Entry 
+          key = {element.id}
+          emojiP={element.emoji}
+          nameP={element.name}
+          meaningP={element.meaning}
+          /> 
+        })}
         {/* Ecriture sans mapping */}
         {/* <Entry
         emojiP= {emojipedia[0].emoji}
@@ -46,33 +54,5 @@ function App() {
   );
 }
 
-
-{/* <div className="term">
-          <dt>
-            <span className="emoji" role="img" aria-label="Tense Biceps">
-              🙏
-            </span>
-            <span>Person With Folded Hands</span>
-          </dt>
-          <dd>
-            Two hands pressed together. Is currently very introverted, saying a
-            prayer, or hoping for enlightenment. Is also used as a “high five”
-            or to say thank you.
-          </dd>
-        </div> */}
-
-{/* <div className="term">
-          <dt>
-            <span className="emoji" role="img" aria-label="Tense Biceps">
-              🤣
-            </span>
-            <span>Rolling On The Floor, Laughing</span>
-          </dt>
-          <dd>
-            This is funny! A smiley face, rolling on the floor, laughing. The
-            face is laughing boundlessly. The emoji version of “rofl“. Stands
-            for „rolling on the floor, laughing“.
-          </dd>
-        </div> */}
 export default App;
 
